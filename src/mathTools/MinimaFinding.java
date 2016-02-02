@@ -8,7 +8,8 @@ import java.util.Arrays;
 public abstract class MinimaFinding{
 	
 	/**
-	 * Computes the minimum of the function log((x2 - x1^2)^2)) + (1 - x1)^2 over the range specified.
+	 * Computes the minimum of the function in the nested Function class over the range specified.
+	 * The current function is log((x2 - x1^2)^2)) + (1 - x1)^2.
 	 * @param a - The lower starting bound.
 	 * @param b - The upper starting bound.
 	 * @param x1 - The first value of the starting point.
@@ -42,6 +43,16 @@ public abstract class MinimaFinding{
 		return new double[]{a, b};
 	}//goldenLineSearch()
 	
+	/**
+	 * Computes the minimum of the function in the nested Function class using the Nelder-Mead algorithm.
+	 * The current function is log((x2 - x1^2)^2)) + (1 - x1)^2.
+	 * @param x - The set of points to start with.
+	 * @param alpha - The damping factor.
+	 * @param beta - The contraction factor.
+	 * @param gamma - The extension factor.
+	 * @param epsilon - The acceptable error for a final answer.
+	 * @return
+	 */
 	public double[][] nelderMead(double[][] x, double alpha, double beta, double gamma, double epsilon){
 		Function xResults[] = new Function[x[0].length],
 				xRResult, xCResult, xEResult;
