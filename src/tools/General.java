@@ -113,4 +113,39 @@ public class General{
 			}finally{ in.nextLine(); }									//Increments the Scanner to prevent a nasty infinite loop.
 		}
 	}//scanInt()
+
+	/**
+	 * Computes the Fibonnaci sequence i times recursively and returns the sum of those values.
+	 * 
+	 * E.g. fibonacci(5) = 1 + 1 + 2 + 3 + 5 = 12
+	 * 		fibonacci(1) = 1
+	 * 		fibonacci(0) = 0
+	 * 		fibonacci(-1)= 0
+	 * 
+	 * @param i - The number of Fibonacci numbers to include.
+	 * @return The result of the Fibonacci sequence iterated through i times
+	 */
+	public static int fibonacci(int i){
+		if(i < 0){
+			return 0;
+		}
+		return fib(i, 0, 0, 1, 0);
+	}//fibonacci()
+	
+	/**
+	 * Private class for recursive operation of the <code>fibonacci()</code> function.
+	 * @param i - The number of iterations to perform
+	 * @param count - The current number of iterations performed.
+	 * @param last - The previous iteration's value.
+	 * @param curr - The current iteration's value.
+	 * @param val - The current sum of the sequence.
+	 * @return The sum of the fibonacci sequence iterated i times.
+	 */
+	private static int fib(int i, int count, int last, int curr, int val){
+		if(count == i){
+			return last + val;
+		}else{
+			return fib(i, count + 1, curr, curr + last, val + last);
+		}
+	}//fib()
 }//General
