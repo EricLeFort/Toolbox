@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Poker{
+public class IntegerBasedPoker{
 	
 	/**
 	 * Creates a new deck of cards and returns a shuffled version.
@@ -1323,10 +1323,4 @@ public class Poker{
 		return message;
 	}//flushMessage(int value)
 
-}//Toolbox
-
-
-/**
-* Possible issues:
-* None! Life is good :) Just working on smoothing out the extra checking that has to do with finding high cards.
-*/
+}//IntegerBasedPoker

@@ -17,7 +17,7 @@ public class Webcrawler{
 		String[] links;
 
 		try{
-			site = Jsoup.connect("http://www.ritegait.com").get();
+			site = Jsoup.connect("http://www.google.ca").get();
 			elems = site.getElementsByTag("a");
 			links = grabAnchorLinks(elems);
 

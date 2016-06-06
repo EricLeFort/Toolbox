@@ -11,8 +11,13 @@ import java.util.Scanner;
 
 public class General{
 	
+	public static void main(String[] args){
+		System.out.println(fibonacci(8));
+	}
+	
 	/**
-	 * Generates a random number within the specified range(from 0 to the range value inclusive). Returns -1 if an error occurs.
+	 * Generates a random number within the specified range(from 0 to the range value inclusive).
+	 * Returns -1 if an error occurs.
 	 * @param range
 	 * @return rnd
 	 */
@@ -115,7 +120,7 @@ public class General{
 	}//scanInt()
 
 	/**
-	 * Computes the Fibonnaci sequence i times recursively and returns the sum of those values.
+	 * Computes the sum of the Fibonacci to the ith number in the sequence.
 	 * 
 	 * E.g. fibonacci(5) = 1 + 1 + 2 + 3 + 5 = 12
 	 * 		fibonacci(1) = 1
@@ -123,29 +128,20 @@ public class General{
 	 * 		fibonacci(-1)= 0
 	 * 
 	 * @param i - The number of Fibonacci numbers to include.
-	 * @return The result of the Fibonacci sequence iterated through i times
+	 * @return The result of the Fibonacci sequence to the ith number in the sequence.
 	 */
-	public static int fibonacci(int i){
-		if(i < 0){
-			return 0;
-		}
-		return fib(i, 0, 0, 1, 0);
-	}//fibonacci()
+	public static int fibonacci(int i){ return (i <= 0) ? 0 : fibNum(i + 2) - 2; }//fibonacci()
 	
 	/**
-	 * Private class for recursive operation of the <code>fibonacci()</code> function.
-	 * @param i - The number of iterations to perform
-	 * @param count - The current number of iterations performed.
-	 * @param last - The previous iteration's value.
-	 * @param curr - The current iteration's value.
-	 * @param val - The current sum of the sequence.
-	 * @return The sum of the fibonacci sequence iterated i times.
+	 * Computes the ith Fibonacci number and returns that number.
+	 * 
+	 * E.g.
+	 * fibNum(5) = 5
+	 * fibNum(0) = 0
+	 * fibNum(1) = 1
+	 * 
+	 * @param i - The index of the Fibonacci number 
+	 * @return The ith Fibonacci number.
 	 */
-	private static int fib(int i, int count, int last, int curr, int val){
-		if(count == i){
-			return last + val;
-		}else{
-			return fib(i, count + 1, curr, curr + last, val + last);
-		}
-	}//fib()
+	public static int fibNum(int i){ return i < 1 ? 0 : (i > 2 ? fibNum(i-1) + fibNum(i-2) : 1); }//fibNum()
 }//General
